@@ -21,7 +21,7 @@ function App(): React.JSX.Element
           strokeColors={[
             { color: '#000000' },
           ]}
-          alphaValues={['FF']}
+          alphlaValues={['FF']}
         />
       </View>
     
