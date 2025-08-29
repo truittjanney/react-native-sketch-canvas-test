@@ -5,7 +5,7 @@ import {
   StyleSheet,
 } from 'react-native';
 
-import SketchCanvas from '@sourcetoad/react-native-sketch-canvas';
+import RNSketchCanvas from '@sourcetoad/react-native-sketch-canvas';
 
 function App(): React.JSX.Element
 {
@@ -13,20 +13,15 @@ function App(): React.JSX.Element
     <View style={styles.container}>
       <Text style={styles.title}>Sketch Canvas Test</Text>
       <View style={styles.canvasWrapper}>
-        <SketchCanvas
+        <RNSketchCanvas
           containerStyle={styles.canvasContainer}
           canvasStyle={styles.canvas}
           defaultStrokeIndex={0}
           defaultStrokeWidth={5}
-          onStrokeStart={() => {
-            console.log('Touch started - drawing began!');
-          }}
-          onStrokeChanged={() => {
-            console.log('Stroke in progress...');
-          }}
-          onStrokeEnd={() => {
-            console.log('Touch ended - stroke complete!');
-          }}
+          strokeColors={[
+            { color: '#000000' },
+          ]}
+          alphaValues={['FF']}
         />
       </View>
     
@@ -60,51 +55,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderWidth: 2,
     borderColor: 'black',
-    minHeight: 300, // Ensure minimum height
+    minHeight: 300,
   },
   canvas: {
     backgroundColor: 'lightblue',
-    flex: 1, // Make sure canvas fills container
+    flex: 1,
   },
 });
 
 export default App;
-
-// import { NewAppScreen } from '@react-native/new-app-screen';
-// import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-// import {
-//   SafeAreaProvider,
-//   useSafeAreaInsets,
-// } from 'react-native-safe-area-context';
-
-// function App() {
-//   const isDarkMode = useColorScheme() === 'dark';
-
-//   return (
-//     <SafeAreaProvider>
-//       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-//       <AppContent />
-//     </SafeAreaProvider>
-//   );
-// }
-
-// function AppContent() {
-//   const safeAreaInsets = useSafeAreaInsets();
-
-//   return (
-//     <View style={styles.container}>
-//       <NewAppScreen
-//         templateFileName="App.tsx"
-//         safeAreaInsets={safeAreaInsets}
-//       />
-//     </View>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//   },
-// });
-
-// export default App;
